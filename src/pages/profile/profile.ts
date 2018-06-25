@@ -1,7 +1,12 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { AlertController } from 'ionic-angular';
+import { ToastController } from 'ionic-angular';
+
 import empArr from '../../app/empArr';
+import index from '../../app/index';
 import { UpdatePage } from '../update/update';
+import { RegisterPage } from '../register/register';
 
 /**
  * Generated class for the ProfilePage page.
@@ -17,7 +22,8 @@ import { UpdatePage } from '../update/update';
 })
 export class ProfilePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, public toastCtrl: ToastController) {
   }
 
   ionViewDidLoad() {
@@ -26,12 +32,35 @@ export class ProfilePage {
 
   emp = empArr
 
-delete(i){
-  this.emp.splice(i,1);
-}
+  addEmp(){
+    this.navCtrl.push(RegisterPage);
+  }  
 
-update(i){
-  this.navCtrl.push(UpdatePage);
-  
-}
+  itemSelected(i){
+    const confirm = this.alertCtrl.create({
+      title: 'Options',
+      message: 'Do you want to delete or update this employee?',
+      buttons: [
+        {
+          text: 'Delete',
+          handler: () => {
+            this.emp.splice(i,1);
+            const toast = this.toastCtrl.create({
+              message: 'Employee was deleted successfully',
+              duration: 3000
+            });
+            toast.present();
+          }
+        },
+        {
+          text: 'Update',
+          handler: () => {
+            index[0] = i;
+            this.navCtrl.push(UpdatePage);
+          }
+        }
+      ]
+    });
+    confirm.present();
+  }
 }

@@ -6,17 +6,29 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>profile</ion-title>
+  <ion-navbar color="primary">
+    <ion-buttons end>
+      <button ion-button icon-only (click)="addEmp()">
+          <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Employees</ion-title>
   </ion-navbar>
 
 </ion-header>
 
-<ion-content padding>
-  <table>
-      
-    <tr *ngFor="let aa of emp, let i = index">
-        <td>{{aa.name}}</td><td>{{aa.surname}}</td><td>{{aa.empID}}</td><td>{{aa.empRole}}</td><td><button (click)="delete(i)" ion-button color="light" round>Delete</button><button (click)="update(i)" ion-button color="light" round>Update</button></td>
-    </tr>
-  </table>
+<ion-content padding class="body">
+    
+    <ion-list  inset class="input">
+        <ion-list inset>
+            <button ion-item *ngFor="let aa of emp, let i = index" (click)="itemSelected(i)" class="input">
+                    <ion-avatar item-start>
+                      <img src="{{aa.empImg}}" >
+                    </ion-avatar>
+                    <h2>{{aa.name}} {{aa.surname}}</h2>
+                    <h3>ID:{{aa.empID}}</h3>
+                    <h3>Role:{{aa.empRole}}</h3>
+            </button> 
+          </ion-list>
+      </ion-list>
 </ion-content>

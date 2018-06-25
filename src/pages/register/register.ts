@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {Employee} from '../../app/empClass';
 import empArr from '../../app/empArr';
 import { LoginPage } from '../login/login';
+import { ProfilePage } from '../profile/profile';
 
 /**
  * Generated class for the RegisterPage page.
@@ -25,11 +26,19 @@ export class RegisterPage {
     console.log('ionViewDidLoad RegisterPage');
   }
 
-  addEmp(name, surname, empID, empRole, usern, psw){
-    let empObj = new Employee(name,surname,empID,empRole,usern,psw);
+  addEmp(name, surname, empID, empRole, empImg){
+    
+    var temp = empImg.replace("fakepath", " ");
+    temp = temp.split(" ", 2)
+    var str = temp[1];
+    str = str.substring(1,str.length);
+    var url = "../../assets/imgs/" + str;
+    console.log(str);
+    
+    let empObj = new Employee(name,surname,empID,empRole, url);
     empArr.push(empObj);
 
-    this.navCtrl.push(LoginPage);
+    this.navCtrl.push(ProfilePage);
     console.log(empArr);
     
   }

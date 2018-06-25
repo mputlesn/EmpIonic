@@ -6,13 +6,38 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>update</ion-title>
+  <ion-navbar color="primary">
+    <ion-title>Update</ion-title>
   </ion-navbar>
 
 </ion-header>
 
+<ion-content padding class="body">
+    <ion-list>
+        <ion-item class="input">
+          <ion-label floating>Name</ion-label>
+          <ion-input type="text" #name value="{{name1}}"></ion-input>
+        </ion-item>
+      
+        <ion-item class="input">
+          <ion-label floating>Surname</ion-label>
+          <ion-input type="text" #surname value="{{surname2}}"></ion-input>
+        </ion-item>
+      
+        <ion-item class="input">
+          <ion-label floating>ID</ion-label>
+          <ion-input type="text" #empID value="{{id}}"></ion-input>
+        </ion-item>
+          
+        <ion-item class="input">
+          <ion-label floating>Role</ion-label>
+          <ion-input type="text" #empRole value="{{role}}"></ion-input>
+        </ion-item>
 
-<ion-content padding>
+        <ion-item class="input">
+            <ion-input type="file" #empImg></ion-input>
+          </ion-item>
 
+      </ion-list>
+      <button class="flex" (click)="update(name.value, surname.value, empID.value, empRole.value, empImg.value)" ion-button round>Add Employee</button>    
 </ion-content>

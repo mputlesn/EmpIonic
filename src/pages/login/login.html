@@ -6,28 +6,31 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>login</ion-title>
+  <ion-navbar color="primary">
+    <ion-title>Login</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-    <ion-list>
-        <ion-item>
-          <ion-label>Username</ion-label>
-          <ion-input type="text" #username></ion-input>
-        </ion-item>
-      
-        <ion-item>
-          <ion-label>Password</ion-label>
-          <ion-input type="password" #password></ion-input>
-        </ion-item>
-      
-      </ion-list>
-      
-      <div padding>
-        <button (click)="login(username.value, password.value)" ion-button color="light" round>Login</button>
-      </div>
+<ion-content padding class="body">
+  <div >
+      <ion-list>
+          <ion-item class="input">
+            <ion-label floating>Username</ion-label>
+            <ion-input type="text" #username></ion-input>
+          </ion-item>
+        
+          <ion-item class="input">
+            <ion-label floating>Password</ion-label>
+            <ion-input type="password" #password></ion-input>
+          </ion-item>
+        
+        </ion-list>
+        
+        <div padding class="flex">
+          <button ion-button round outline color="light"(click)="login(username.value, password.value)" >Login</button>
+        </div>
+  </div>
+    
 </ion-content>

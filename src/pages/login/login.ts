@@ -18,8 +18,8 @@ import empArr from '../../app/empArr';
 export class LoginPage {
 
   emp = empArr
-  usern;
-  psw;
+  usern = "admin";
+  psw = "admin";
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -32,10 +32,10 @@ export class LoginPage {
 
   login(username, password){
 
-    for (let index = 0; index < this.emp.length; index++) {
-      this.usern = this.emp[index].usern;
-      this.psw = this.emp[index].psw;
-    }
+    // for (let index = 0; index < this.emp.length; index++) {
+    //   this.usern = this.emp[index].usern;
+    //   this.psw = this.emp[index].psw;
+    // }
 
     if(password == this.psw && username== this.usern)
     {
