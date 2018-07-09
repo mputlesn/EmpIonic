@@ -31,19 +31,33 @@ export class UpdatePage {
   surname2 = empArr[this.i].surname;
   id = empArr[this.i].empID;
   role = empArr[this.i].empRole;
+  image = empArr[this.i].empImg
   
-  
-  update(name, surname, empID, empRole, empImg){  
-    
-    console.log(empImg);
-    
-    var temp = empImg.replace("fakepath", " ");
-    temp = temp.split(" ", 2)
-    var str = temp[1];
-    str = str.substring(1,str.length);
-    var url = "../../assets/imgs/" + str;
+  insertImage(event: any){
+    if(event.target.files && event.target.files[0]){
+      let reader = new FileReader();
 
-    let obj = new Employee(name, surname, empID, empRole, url)
+      reader.onload = (event:any) => {
+        this.image = event.target.result;
+      }
+      reader.readAsDataURL(event.target.files[0]);
+      console.log(event.target.files);
+    }
+  }
+
+  update(name, surname, empID, empRole){  
+    
+    // console.log(empImg);
+    
+    // var temp = empImg.replace("fakepath", " ");
+    // temp = temp.split(" ", 2)
+    // var str = temp[1];
+    // str = str.substring(1,str.length);
+    // var url = "../../assets/imgs/" + str;
+
+    
+
+    let obj = new Employee(name, surname, empID, empRole, this.image)
     empArr.splice(index[0],1,obj);
      console.log(empArr);
      this.navCtrl.push(ProfilePage);

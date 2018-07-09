@@ -23,11 +23,11 @@
         <ion-list inset>
             <button ion-item *ngFor="let aa of emp, let i = index" (click)="itemSelected(i)" class="input">
                     <ion-avatar item-start>
-                      <img src="{{aa.empImg}}" >
+                      <img class="imgListaSize" src="{{aa.empImg}}">
                     </ion-avatar>
-                    <h2>{{aa.name}} {{aa.surname}}</h2>
-                    <h3>ID:{{aa.empID}}</h3>
-                    <h3>Role:{{aa.empRole}}</h3>
+                      <h2>{{aa.name}} {{aa.surname}}</h2>
+                      <h3>ID:{{aa.empID}}</h3>
+                      <h3>Role:{{aa.empRole}}</h3>
             </button> 
           </ion-list>
       </ion-list>

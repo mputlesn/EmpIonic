@@ -6,8 +6,15 @@ page-profile {
         background-size: cover;
     }
 
-.input{
-    background-color: transparent;
-    color: white;
-}
+    .input{
+        background-color: transparent;
+        color: white;
+    }
+
+    .imgListaSize {
+        margin: auto;
+        width: 20vw !important;
+        height: 20vw !important;
+    }
+
 }

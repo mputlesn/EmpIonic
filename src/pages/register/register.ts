@@ -19,6 +19,8 @@ import { ProfilePage } from '../profile/profile';
 })
 export class RegisterPage {
 
+  url ='http://www.dealnetcapital.com/files/2014/10/blank-profile.png';
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
@@ -26,16 +28,30 @@ export class RegisterPage {
     console.log('ionViewDidLoad RegisterPage');
   }
 
-  addEmp(name, surname, empID, empRole, empImg){
+  insertImage(event: any){
+    if(event.target.files && event.target.files[0]){
+      let reader = new FileReader();
+
+      reader.onload = (event:any) => {
+        this.url = event.target.result;
+      }
+
+      reader.readAsDataURL(event.target.files[0]);
+      console.log(event.target.files);
+    }
+  }
+
+  addEmp(name, surname, empID, empRole){
     
-    var temp = empImg.replace("fakepath", " ");
-    temp = temp.split(" ", 2)
-    var str = temp[1];
-    str = str.substring(1,str.length);
-    var url = "../../assets/imgs/" + str;
-    console.log(str);
+    // var temp = empImg.replace("fakepath", " ");
+    // temp = temp.split(" ", 2)
+    // var str = temp[1];
+    // str = str.substring(1,str.length);
+    // var url = "../../assets/imgs/" + str;
     
-    let empObj = new Employee(name,surname,empID,empRole, url);
+     console.log(this.url);
+    
+    let empObj = new Employee(name,surname,empID,empRole, this.url);
     empArr.push(empObj);
 
     this.navCtrl.push(ProfilePage);

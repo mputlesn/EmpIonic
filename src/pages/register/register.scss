@@ -15,6 +15,10 @@ page-register {
     .flex{
         display: flex;
         justify-content: center;
-        align-items: center;
+        position: relative;
+        top: 100px;
+        margin-left: 25%;
+        color: white;
+       
     }
 }

@@ -35,9 +35,9 @@
         </ion-item>
 
         <ion-item class="input">
-            <ion-input type="file" #empImg></ion-input>
-          </ion-item>
+          <ion-input type="file" #image accept="image/png, image/jpeg" (change)="insertImage($event)"></ion-input>
+      </ion-item>
 
       </ion-list>
-      <button class="flex" (click)="update(name.value, surname.value, empID.value, empRole.value, empImg.value)" ion-button round>Add Employee</button>    
+      <button class="flex" (click)="update(name.value, surname.value, empID.value, empRole.value)" ion-button round>Add Employee</button>    
 </ion-content>
